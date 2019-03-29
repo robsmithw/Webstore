@@ -1,0 +1,37 @@
+header{
+    background-color: blue;
+    height:40px;
+    font-size: 25px;
+}
+a{
+    display:inline-block;
+}
+.HomePage{
+    margin-right: 10px;
+    font-size: 35px;
+}
+.BuyPage{
+    float: right;
+    margin-right:50px;
+    color:white;
+}
+.RentPage{
+    float: right;
+    margin-right:50px;
+    color:white;
+}
+.ReturnPage{
+    float: right;
+    margin-right:50px;
+    color:white;
+}
+.SellPage{
+    float: right;
+    margin-right:150px;
+    color:white;
+}
+.LoginPage{
+    float: right;
+    margin-right:30px;
+    color:white;
+}
