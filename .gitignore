@@ -8,6 +8,7 @@ npm
 npm.cmd
 npx
 npx.cmd
+__pycache__
 
 # dependencies
 /node_modules
