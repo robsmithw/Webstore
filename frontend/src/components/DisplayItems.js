@@ -1,4 +1,12 @@
 import React, { Component } from 'react';
+import basketball from '../Pics/basketball.jpg'
+import hdmi from '../Pics/hdmi.jpg'
+import vga from '../Pics/vga.jpg'
+import game from '../Pics/game.jpg'
+import monitor from '../Pics/monitor.jpg'
+import speaker from '../Pics/speaker.jpg'
+import lightning from '../Pics/lightning.jpg'
+import './DisplayItems.css'
 
 class DisplayItems extends Component {
 
@@ -11,6 +19,7 @@ class DisplayItems extends Component {
     "quantity":1,
     "status":"new",
     "instock": true,
+    "src": basketball,
     "Type" : [{
         "Sell": true,
         "rent": false
@@ -23,6 +32,7 @@ class DisplayItems extends Component {
     "quantity":0,
     "status":"used",
     "instock": false,
+    "src": hdmi,
     "Type" : [{
         "Sell": true,
         "rent": false
@@ -35,6 +45,7 @@ class DisplayItems extends Component {
     "quantity":0,
     "status":"new",
     "instock": false,
+    "src": vga,
     "Type" : [{
         "Sell": true,
         "rent": false
@@ -47,6 +58,7 @@ class DisplayItems extends Component {
     "quantity":1,
     "status":"new",
     "instock": true,
+    "src": monitor,
     "Type" : [{
         "Sell": true,
         "rent": false
@@ -59,6 +71,7 @@ class DisplayItems extends Component {
     "quantity":1,
     "status":"used",
     "instock": true,
+    "src": speaker,
     "Type" : [{
         "Sell": true,
         "rent": false
@@ -71,6 +84,7 @@ class DisplayItems extends Component {
     "quantity":1,
     "status":"new",
     "instock": true,
+    "src": lightning,
     "Type" : [{
         "Sell": true,
         "rent": false
@@ -83,6 +97,7 @@ class DisplayItems extends Component {
     "quantity":1,
     "status":"new",
     "instock": true,
+    "src": game,
     "Type" : [{
         "Sell": true,
         "rent": true
@@ -105,8 +120,8 @@ class DisplayItems extends Component {
   render() {
     return(
       <div className="App">
-        {this.state.for_sell.map(items=> 
-        <li>{items.item_name} cost {items.price} and there are {items.instock} </li>)}
+        {this.state.for_sell.map(items=>
+        <img src = {items.src} alt = {items.item_name} height="200px"></img>,<li></li> )}
         {/*implement later {this.state.loading ? <div> loading...</div>:<div>item</div>}*/}
       </div>
       )

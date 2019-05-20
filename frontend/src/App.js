@@ -4,13 +4,6 @@ import DisplayItems from './components/DisplayItems';
 import './App.css';
 
 class App extends Component {
-  constructor(){
-    super();
-    this.state = {
-      items: [],
-      loaded: false,
-    }
-  }
 
   /*componentDidMount(){
     fetch('http://localhost:5000/items')
@@ -29,18 +22,9 @@ class App extends Component {
   }*/
 
   render() {
-  var {items,loaded} = this.state;
     return (
       <div className="App">
         <Title />
-        <ul>
-          cost
-          {items.map(item => (
-            <li key={item.id}>
-              {item.name} cost {item.price}
-            </li>
-          ))};
-        </ul>
         <DisplayItems />
       </div>
     );
