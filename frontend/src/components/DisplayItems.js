@@ -121,7 +121,10 @@ class DisplayItems extends Component {
     return(
       <div className="App">
         {this.state.for_sell.map(items=>
-        <img src = {items.src} alt = {items.item_name} height="200px"></img>,<li></li> )}
+        <div key={items.id} className="image">
+          <img src = {items.src} alt = {items.item_name} height="200px"></img>
+          <span className="details">{items.item_name} currently cost ${items.price}</span>
+        </div>)}
         {/*implement later {this.state.loading ? <div> loading...</div>:<div>item</div>}*/}
       </div>
       )
