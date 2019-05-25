@@ -27,9 +27,11 @@ def query_db(sql_statement,is_connected):
     try:
         success = True
         with our_connection.cursor() as cursor:
-            num_rows = cursor.execute(sql_statement)
-            for i in range(num_rows):
-                print(i)
+            cursor.execute(sql_statement)
+            if("SELECT" in sql_statement):
+                results = cursor.fetchone()
+                print(results)
+        our_connection.commit()
     except Exception as e:
         success = False
         print("Exception Occured:{}".format(e))
@@ -38,3 +40,4 @@ def query_db(sql_statement,is_connected):
             print("Successfully executed query {}".format(sql_statement))
         else:
             print("Did not successfully execute query.")
+        our_connection.close()
