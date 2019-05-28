@@ -2,35 +2,18 @@
     "Users":[
         {
             "id":1,
-            "user_name": "a_user_name",
-            "password": "a_hashed_value",
-            "selling":[{
-                "item_id":1
-            },
-            {"item_id" : 2
-            }]
+            "user_name": "rob_smith",
+            "password": "a_hashed_value"
+        },
+        {
+            "id":2,
+            "user_name": "robert_name",
+            "password": "another_hashed_value"
         },
         {
             "id":3,
-            "user_name": "a_user_name",
-            "password": "a_hashed_value",
-            "selling":[{
-                "item_id":3
-            },
-            {"item_id" : 4
-            }]
-        },
-        {
-            "id":3,
-            "user_name": "a_user_name",
-            "password": "a_hashed_value",
-            "selling":[{
-                "item_id":5
-            },
-            {"item_id" : 6
-            },{
-                "item_id":7
-            }]
+            "user_name": "another_name",
+            "password": "again_hashed_value"
         }
     ]
 }

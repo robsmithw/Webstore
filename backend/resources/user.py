@@ -1,48 +1,20 @@
-from flask_restful import Resource
-import os
-import json
+from flask_restful import Resource, reqparse
+from mock_data.query import query_db
 
+connected = False
 class User(Resource):
-    def get(self): #In the future I will be setting this up to connect to a db
-        return {
-    "Users":[
-        {
-            "id":1,
-            "user_name": "a_user_name",
-            "password": "a_hashed_value",
-            "selling":[{
-                "item_id":1
-            },
-            {"item_id" : 2
-            }]
-        },
-        {
-            "id":3,
-            "user_name": "a_user_name",
-            "password": "a_hashed_value",
-            "selling":[{
-                "item_id":3
-            },
-            {"item_id" : 4
-            }]
-        },
-        {
-            "id":3,
-            "user_name": "a_user_name",
-            "password": "a_hashed_value",
-            "selling":[{
-                "item_id":5
-            },
-            {"item_id" : 6
-            },{
-                "item_id":7
-            }]
-        }
-    ]
-}
+    def get(self):
+        parser = reqparse.RequestParser()
+        parser.add_argument('user', type=str) #Returns a specific user by specified by id
+        args = parser.parse_args()
+        if args["user"]:
+            select_statement = "SELECT * FROM User WHERE `id` = {}".format(args["user"])
+            return query_db(select_statement,connected)
+        select_statement = "SELECT * FROM User"
+        return query_db(select_statement,connected)
     def post(self):
         return
-    def put(self):
+    def put(self, user_id):
         return
-    def delete(self):
+    def delete(self, user_id):
         return

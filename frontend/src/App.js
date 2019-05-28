@@ -1,36 +1,31 @@
 import React, { Component } from 'react';
 import Title from './components/Title';
-import AllNews from './components/AllNews';
+import DisplayItems from './components/DisplayItems';
 import './App.css';
 
 class App extends Component {
-  state = {
-    items:[
-      {
-        id: 1,
-        name: 'Ball',
-        status: 'New',
-        price: 12.00 //Price is in dollars
-      },
-      {
-        id: 2,
-        name: 'Cord',
-        status: 'Used',
-        price: 3.00
-      },
-      {
-        id: 3,
-        name: 'Site',
-        status: 'New',
-        price: 100.00
-      }
-    ]
-  }
+
+  /*componentDidMount(){
+    fetch('http://localhost:5000/items')
+    .then( results => {return results.json();
+    }).then(data =>{
+      let items = data.results.map((item) => {
+        return(
+          <div key={item.id}>{item.name}</div>
+        )
+      })
+      this.setState({
+        items: items,
+        loaded: true,
+      });
+    })
+  }*/
+
   render() {
     return (
       <div className="App">
         <Title />
-        <AllNews items={this.state.items} />
+        <DisplayItems />
       </div>
     );
   }
