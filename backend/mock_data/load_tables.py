@@ -1,22 +1,28 @@
 from query import query_db
+import json
 
 connected = False
-load_items = ["INSERT INTO `Item` (`price`,`quantity`,`status`,`instock`"\
-",`sell`,`rent`) VALUES (12, 1, 'New', true, true, false)",
-"INSERT INTO `Item` (`price`,`quantity`,`status`,`instock`"\
-",`sell`,`rent`) VALUES (10, 11, 'Used', false, false, true)"]
-load_users = ["INSERT INTO `User` (`user_name`,`password`)"\
-" VALUES ('Robert_user_name','some_password')",
-"INSERT INTO `User` (`user_name`,`password`)"\
-" VALUES ('John_user_name','another_password')"]
-load_links = ["INSERT INTO `Link` (`item_id`,`current_user_id`,`new_user_id`)"\
-" VALUES (1, 1, NULL)",
-"INSERT INTO `Link` (`item_id`,`current_user_id`,`new_user_id`)"\
-" VALUES (2, 2, 1)"]
+insert_users = "INSERT INTO `User` (`user_name`,`password`) VALUES ('{}', '{}')"
+insert_items = "INSERT INTO `Item` (`item_name`,`price`,`quantity`,`status`,`instock`,`sell`,`rent`) VALUES ('{}', {}, {}, '{}', {}, {}, {})"
+insert_links = "INSERT INTO `Link` (`item_id`,`current_user_id`,`new_user_id`) VALUES ({}, {}, {})"
 
-for item in load_items:
-    query_db(item, connected)
-for user in load_users:
-    query_db(user, connected)
-for link in load_links:
-    query_db(link, connected)
+with open("users.json", 'r') as json_file:
+	all_users = json.load(json_file)
+for user in all_users["Users"]:
+    name = user["user_name"]
+    user_pass = user["password"]
+    insert_statement = insert_users.format(name, user_pass)
+    query_db(insert_statement,connected)
+
+with open("items.json", 'r') as json_file:
+	all_items = json.load(json_file)
+for item in all_items["for_sell"]:
+    name = item["item_name"]
+    price = item["price"]
+    quantity = item["quantity"]
+    status = item["status"]
+    instock = item["instock"]
+    sell = item["sell"]
+    rent = item["rent"]
+    insert_statement = insert_items.format(name,price,quantity,status,instock,sell,rent)
+    query_db(insert_statement,connected)

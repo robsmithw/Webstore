@@ -3,6 +3,7 @@ from query import query_db
 connected = False
 create_item = "CREATE TABLE `Item` (" \
         "`id` int NOT NULL AUTO_INCREMENT," \
+        "`item_name` varchar(50) NOT NULL," \
         "`price` int NOT NULL," \
         "`quantity` int NOT NULL," \
         "`status` varchar(20) NOT NULL," \
@@ -13,7 +14,7 @@ create_item = "CREATE TABLE `Item` (" \
 create_user = "CREATE TABLE `User` (" \
         "`id` int NOT NULL AUTO_INCREMENT," \
         "`user_name` varchar(50) NOT NULL," \
-        "`password` varchar(50) NOT NULL," \
+        "`password` varchar(64) NOT NULL," \
         "PRIMARY KEY(`id`) )"
 create_link = "CREATE TABLE `Link` (" \
         "`item_id` int NOT NULL," \
