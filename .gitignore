@@ -9,6 +9,7 @@ npm.cmd
 npx
 npx.cmd
 __pycache__
+password.txt
 
 # dependencies
 /node_modules
