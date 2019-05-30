@@ -14,13 +14,18 @@ class Item(Resource):
         return query_db(select_statement,connected), 200
     def post(self):
         insert_items = "INSERT INTO `Item` (`item_name`,`price`,`quantity`,`status`,`instock`,`sell`,`rent`) VALUES ('{}', {}, {}, '{}', {}, {}, {})"
-        name = request.json["item_name"]
-        price = request.json["price"]
-        quantity = request.json["quantity"]
-        status = request.json["status"]
-        instock = request.json["instock"]
-        sell = request.json["sell"]
-        rent = request.json["rent"]
+        
+        try:
+            name = request.json["item_name"]
+            price = request.json["price"]
+            quantity = request.json["quantity"]
+            status = request.json["status"]
+            instock = request.json["instock"]
+            sell = request.json["sell"]
+            rent = request.json["rent"]
+        except KeyError as e:
+            return "No Key provided for:{}".format(e),400
+            
         insert_statement = insert_items.format(name, price, quantity, status, instock, sell, rent)
         return query_db(insert_statement, connected), 201
     def put(self, item_id):
