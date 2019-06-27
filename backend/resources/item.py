@@ -44,4 +44,10 @@ class Item(Resource):
         update_statement = update_item.format(name, price, quantity, status, instock, sell, rent, item_id)
         return query_db(update_statement, connected), 204
     def delete(self, item_id):
-        return
+        delete_item = "DELETE FROM `Item` WHERE `id` = {}"
+        delete_statement = delete_item.format(item_id)
+        try:
+            query_db(delete_statement, connected)
+            return "",204
+        except Exception as e:
+            return "An Error Occured:{}".format(e)

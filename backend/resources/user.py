@@ -38,4 +38,10 @@ class User(Resource):
         update_statement = update_users.format(name, user_pass, user_id)
         return query_db(update_statement, connected), 204
     def delete(self, user_id):
-        return
+        delete_user = "DELETE FROM `User` WHERE `id` = {}"
+        delete_statement = delete_user.format(user_id)
+        try:
+            query_db(delete_statement, connected)
+            return "",204
+        except Exception as e:
+            return "An Error Occured:{}".format(e),400
