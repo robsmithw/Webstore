@@ -28,6 +28,14 @@ class User(Resource):
         insert_statement = insert_users.format(name,user_pass)
         return query_db(insert_statement, connected), 201
     def put(self, user_id):
-        return
+        update_users = "UPDATE `User` SET `user_name` = '{}', `password` = '{}' WHERE `id` = {}"
+        try:
+            name = request.json["user_name"]
+            user_pass = request.json["password"]
+        except KeyError as e:
+            return "No Key provided for:{}".format(e),400
+        
+        update_statement = update_users.format(name, user_pass, user_id)
+        return query_db(update_statement, connected), 204
     def delete(self, user_id):
         return

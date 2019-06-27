@@ -29,6 +29,19 @@ class Item(Resource):
         insert_statement = insert_items.format(name, price, quantity, status, instock, sell, rent)
         return query_db(insert_statement, connected), 201
     def put(self, item_id):
-        return
+        update_item = "UPDATE `Item` SET `item_name` = '{}', `price` = {}, `quantity` = {}, `status` = '{}', `instock` = {}, `sell` = {}, `rent` = {} WHERE `id` = {}"
+        try:
+            name = request.json["item_name"]
+            price = request.json["price"]
+            quantity = request.json["quantity"]
+            status = request.json["status"]
+            instock = request.json["instock"]
+            sell = request.json["sell"]
+            rent = request.json["rent"]
+        except KeyError as e:
+            return "No Key provided for:{}".format(e),400
+        
+        update_statement = update_item.format(name, price, quantity, status, instock, sell, rent, item_id)
+        return query_db(update_statement, connected), 204
     def delete(self, item_id):
         return
