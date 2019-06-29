@@ -17,8 +17,16 @@ def test_connect(the_password,connection_status):
 def query_db(sql_statement,is_connected):
     try:
         if not is_connected:
-            with open("password.txt",'r') as pass_file:
-                password = pass_file.readline()
+            name_of_file = sys.argv[0]
+            if './' in name_of_file:
+                newstring = name_of_file.split('/')
+                name_of_file = newstring[1]
+            if name_of_file == 'create_tables.py' or name_of_file == 'load_tables.py' or name_of_file == 'delete_tables.py':
+                with open("../password.txt",'r') as pass_file:
+                    password = pass_file.readline()
+            else:
+                with open("password.txt",'r') as pass_file:
+                    password = pass_file.readline()
             our_connection = test_connect(password,is_connected)
 
     except FileNotFoundError: #Need to eventually make sure this catch still works
