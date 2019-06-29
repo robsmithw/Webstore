@@ -1,11 +1,4 @@
 import React, { Component } from 'react';
-import basketball from '../Pics/basketball.jpg'
-import hdmi from '../Pics/hdmi.jpg'
-import vga from '../Pics/vga.jpg'
-import game from '../Pics/game.jpg'
-import monitor from '../Pics/monitor.jpg'
-import speaker from '../Pics/speaker.jpg'
-import lightning from '../Pics/lightning.jpg'
 import './DisplayItems.css'
 
 class DisplayItems extends Component {
@@ -29,7 +22,7 @@ class DisplayItems extends Component {
         {this.state.loading ? <div> loading...</div>:<div>We Loaded</div>}
         {this.state.for_sell.map(item =>
         <div key={item.id} className="image">
-          {/*<img src = {item.src} alt = {item.item_name} height="200px"></img>*/}
+          <img src = {item.src} alt = {item.item_name} height="200px"></img>
           <span className="details">{item.item_name} currently cost ${item.price}</span>
         </div>)}
       </div>
