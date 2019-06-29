@@ -8,6 +8,7 @@ create_item = "CREATE TABLE `Item` (" \
         "`quantity` int NOT NULL," \
         "`status` varchar(20) NOT NULL," \
         "`instock` boolean NOT NULL," \
+        "`src` varchar(250) NOT NULL," \
         "`sell` boolean NOT NULL," \
         "`rent` boolean NOT NULL," \
         "PRIMARY KEY(`id`) )"
