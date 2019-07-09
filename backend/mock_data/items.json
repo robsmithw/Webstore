@@ -7,7 +7,7 @@
     "quantity":1,
     "status":"new",
     "instock": true,
-    "src": "../Pics/basketball.jpg",
+    "src": "Pics/basketball.jpg",
     "sell": true,
     "rent": false
     }, 
@@ -18,7 +18,7 @@
     "quantity":0,
     "status":"used",
     "instock": false,
-    "src": "../Pics/hdmi.jpg",
+    "src": "Pics/hdmi.jpg",
     "sell": true,
     "rent": false
     }, 
@@ -29,7 +29,7 @@
     "quantity":0,
     "status":"new",
     "instock": false,
-    "src": "../Pics/vga.jpg",
+    "src": "Pics/vga.jpg",
     "sell": true,
     "rent": false
     }, 
@@ -40,7 +40,7 @@
     "quantity":1,
     "status":"new",
     "instock": true,
-    "src": "../Pics/monitor.jpg",
+    "src": "Pics/monitor.jpg",
     "sell": true,
     "rent": false
     }, 
@@ -51,7 +51,7 @@
     "quantity":1,
     "status":"used",
     "instock": true,
-    "src": "../Pics/speaker.jpg",
+    "src": "Pics/speaker.jpg",
     "sell": true,
     "rent": false
     }, 
@@ -62,7 +62,7 @@
     "quantity":1,
     "status":"new",
     "instock": true,
-    "src": "../Pics/lightning.jpg",
+    "src": "Pics/lightning.jpg",
     "sell": true,
     "rent": false
     }, 
@@ -73,7 +73,7 @@
     "quantity":1,
     "status":"new",
     "instock": true,
-    "src": "../Pics/game.jpg",
+    "src": "Pics/game.jpg",
     "sell": true,
     "rent": true
     }
